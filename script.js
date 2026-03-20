@@ -163,15 +163,26 @@ function initCarousel() {
   const dotsWrap = document.getElementById('carouselDots');
   if (!track) return;
 
-  const cards     = Array.from(track.children);
-  const perPage   = () => window.innerWidth < 768 ? 1 : 3;
-  let   current   = 0;
+  const cards   = Array.from(track.children);
+  const GAP     = 24; // matches 1.5rem gap in CSS
+  const perPage = () => window.innerWidth < 768 ? 1 : 3;
+  let   current = 0;
 
-  function pages() { return Math.ceil(cards.length / perPage()); }
+  function totalPages() { return Math.ceil(cards.length / perPage()); }
+
+  function getOffset(page) {
+    // Left edge of the first card on this page
+    const pp   = perPage();
+    const idx  = page * pp;
+    if (idx >= cards.length) return getOffset(totalPages() - 1);
+    const card = cards[idx];
+    return card.offsetLeft - track.parentElement.offsetLeft;
+  }
 
   function buildDots() {
     dotsWrap.innerHTML = '';
-    for (let i = 0; i < pages(); i++) {
+    const n = totalPages();
+    for (let i = 0; i < n; i++) {
       const d = document.createElement('div');
       d.className = 'dot' + (i === current ? ' active' : '');
       d.addEventListener('click', () => goTo(i));
@@ -180,15 +191,13 @@ function initCarousel() {
   }
 
   function goTo(page) {
-    current = Math.max(0, Math.min(page, pages() - 1));
-    const pp   = perPage();
-    const card = cards[0];
-    const gap  = 24; // 1.5rem gap
-    const w    = card.offsetWidth + gap;
-    track.style.transform = `translateX(-${current * pp * w}px)`;
-    dotsWrap.querySelectorAll('.dot').forEach((d, i) => {
-      d.classList.toggle('active', i === current);
-    });
+    current = Math.max(0, Math.min(page, totalPages() - 1));
+    track.style.transform = `translateX(-${getOffset(current)}px)`;
+    dotsWrap.querySelectorAll('.dot').forEach((d, i) =>
+      d.classList.toggle('active', i === current)
+    );
+    prevBtn.style.opacity = current === 0 ? '0.3' : '1';
+    nextBtn.style.opacity = current === totalPages() - 1 ? '0.3' : '1';
   }
 
   prevBtn.addEventListener('click', () => goTo(current - 1));
@@ -196,6 +205,7 @@ function initCarousel() {
   window.addEventListener('resize', () => { current = 0; buildDots(); goTo(0); }, { passive: true });
 
   buildDots();
+  goTo(0);
 }
 
 /* ── Init ────────────────────────────────────────────────── */

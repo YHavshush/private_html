@@ -16,7 +16,7 @@
     <div class="nav-inner">
       <ul class="nav-left">
         <li><a href="#deals">Deals</a></li>
-        <li><a href="#team">Team</a></li>
+        <li><a href="#global">Team</a></li>
         <li><a href="#global">Global Reach</a></li>
         <li><a href="#sectors">Sectors</a></li>
       </ul>
@@ -26,7 +26,7 @@
       </a>
       <ul class="nav-right">
         <li><a href="#services">Services</a></li>
-        <li><a href="#careers">Careers</a></li>
+        <li><a href="#contact">Careers</a></li>
         <li><a href="#about">About Us</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -37,11 +37,11 @@
     <!-- Mobile menu -->
     <div class="nav-mobile" id="navMobile">
       <a href="#deals">Deals</a>
-      <a href="#team">Team</a>
+      <a href="#global">Team</a>
       <a href="#global">Global Reach</a>
       <a href="#sectors">Sectors</a>
       <a href="#services">Services</a>
-      <a href="#careers">Careers</a>
+      <a href="#contact">Careers</a>
       <a href="#about">About Us</a>
       <a href="#contact">Contact</a>
     </div>
@@ -102,16 +102,16 @@
       <h2 class="section-title">We support innovators that aim to have an impact at the intersection of the Technology, Energy and Mobility sectors</h2>
       <p class="section-sub">By combining global M&amp;A and financing expertise with deep sector knowledge, our clients and partners benefit from our insights and established relationships with key stakeholders across the world.</p>
       <div class="sector-cards">
-        <a href="#" class="sector-card">
-          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=700&q=80&auto=format&fit=crop" alt="Technology" />
+        <a href="#" class="sector-card reveal">
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=700&q=80&auto=format&fit=crop" alt="Technology" loading="lazy" />
           <div class="sector-label">Technology</div>
         </a>
-        <a href="#" class="sector-card">
-          <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=700&q=80&auto=format&fit=crop" alt="Energy" />
+        <a href="#" class="sector-card reveal" style="transition-delay:0.12s">
+          <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=700&q=80&auto=format&fit=crop" alt="Energy" loading="lazy" />
           <div class="sector-label">Energy</div>
         </a>
-        <a href="#" class="sector-card">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80&auto=format&fit=crop" alt="Mobility" />
+        <a href="#" class="sector-card reveal" style="transition-delay:0.24s">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80&auto=format&fit=crop" alt="Mobility" loading="lazy" />
           <div class="sector-label">Mobility</div>
         </a>
       </div>
@@ -131,7 +131,7 @@
         <div class="deals-viewport">
           <div class="deals-track" id="dealsTrack">
 
-            <div class="deal-card">
+            <div class="deal-card reveal">
               <div class="deal-top">
                 <span class="deal-year">2025</span>
                 <span class="deal-flags">&#127475;&#127473; &#127465;&#127466;</span>
@@ -207,7 +207,7 @@
   </section>
 
   <!-- ── Global / Team Banner ──────────────────────────────── -->
-  <section class="global-banner" id="global">
+  <section class="global-banner" id="global" data-also="team">
     <div class="dotmap-bg"></div>
     <div class="container">
       <div class="global-content">
@@ -221,13 +221,41 @@
   <!-- ── Services ───────────────────────────────────────────── -->
   <section class="services" id="services">
     <div class="container">
-      <div class="services-grid">
+      <div class="services-grid reveal">
         <div class="services-slash" aria-hidden="true">/</div>
         <div class="services-text">
           <p class="eyebrow">Services</p>
           <h2 class="section-title">Our aim is to unlock value by providing bespoke services</h2>
           <p class="section-sub">We actively engage with our clients to optimise their growth strategies, supporting across a range of advisory services, including tailored M&amp;A and financing.</p>
           <a href="#" class="btn btn-red">Read More <span class="arrow">&#8594;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── News & Insights teaser ───────────────────────────── -->
+  <section class="news-teaser" id="news">
+    <div class="container">
+      <div class="news-inner reveal">
+        <div class="news-text">
+          <p class="eyebrow">News &amp; Insights</p>
+          <h2 class="section-title">Stay at the forefront of TEM innovation</h2>
+          <p class="section-sub">White papers, market reports, and deal commentary from our specialist team.</p>
+          <a href="#" class="btn btn-red">View All Insights <span class="arrow">&#8594;</span></a>
+        </div>
+        <div class="news-cards">
+          <article class="news-card">
+            <p class="news-card-tag">White Paper</p>
+            <h3>Smart Charging Infrastructure: The Road Ahead</h3>
+            <p>IMPROVED &amp; P3 examine the challenges and opportunities shaping EV charging investment across Europe.</p>
+            <a href="#" class="news-read-more">Read More &#8594;</a>
+          </article>
+          <article class="news-card">
+            <p class="news-card-tag">Market Report</p>
+            <h3>The State of TEM M&amp;A: 2025 Mid-Year Review</h3>
+            <p>A data-driven look at deal volumes, valuations, and strategic themes shaping Technology, Energy and Mobility transactions.</p>
+            <a href="#" class="news-read-more">Read More &#8594;</a>
+          </article>
         </div>
       </div>
     </div>
